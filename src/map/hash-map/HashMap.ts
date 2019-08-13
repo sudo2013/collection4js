@@ -13,7 +13,7 @@ import MapEntrySet from '../MapEntrySet';
 /**
  * hashmap 键值对
  */
-class HashMap<K extends string | number, V> implements Map<K, V> {
+class HashMap<K extends string | number | symbol, V> implements Map<K, V> {
 
     /**
      * 数据集大小
@@ -22,7 +22,8 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     /**
      * 数据表
      */
-    private readonly _table: { [key: string]: HashMapNode<K, V> } = {};
+    // @ts-ignore
+    private readonly _table: {[key: K]: HashMapNode<K, V> } = {};
     /**
      * 键值存储数组
      * TODO：暂时没有实现
@@ -45,6 +46,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     clear(): void {
         if (this._size > 0) {
             for (const key in this._table) {
+                // @ts-ignore
                 delete this._table[key];
             }
         }
@@ -135,6 +137,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     private _$putValue(key: K, value: V): void {
         const node: HashMapNode<K, V> = new HashMapNode(key, value)
 
+        // @ts-ignore
         this._table[key] = node
 
         //键值对集大小+1
@@ -165,7 +168,9 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
         let value: V = null
 
         if (this._size && this._table.hasOwnProperty(key)) {
+            // @ts-ignore
             const node = this._table[key]
+            // @ts-ignore
             value = node.value
         }
 
@@ -182,9 +187,12 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
         let value: V = null
 
         if (this._size && this._table.hasOwnProperty(key)) {
+            // @ts-ignore
             const node = this._table[key]
+            // @ts-ignore
             value = node.value
 
+            // @ts-ignore
             delete this._table[key]
         }
 

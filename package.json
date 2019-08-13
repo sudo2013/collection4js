@@ -11,6 +11,9 @@
     "dist/*",
     "*.json"
   ],
+  "repository": {
+    "url": "https://github.com/l634666/js-collection"
+  },
   "keywords": [],
   "author": "l634666",
   "devDependencies": {
