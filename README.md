@@ -103,9 +103,9 @@ map.forEach(function(key, value) {
 
 ```js
 map
-  .set(1, "1")
-  .set(2, "2")
-  .set(3, "3")
+  .put(1, "1")
+  .put(2, "2")
+  .put(3, "3")
   .forEach(function(value, key) {
       console.log(key + " : " + value);
   });
