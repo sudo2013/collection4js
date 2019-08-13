@@ -1,6 +1,6 @@
 {
-  "name": "intmes-core",
-  "version": "0.1.0-beta1",
+  "name": "js-collection",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/js-collection.common.js",
   "types": "dist/index.d.ts",

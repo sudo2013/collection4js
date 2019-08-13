@@ -1,7 +1,8 @@
 /**
  * @program: js-collection
  * @description:
- * @author: liusx
- * @email: liusx@intmes.com
- * @create: 2019-08-09 15:31
+ * @author: l634666
+ * @create: 2019-08-09 15:32
  */
+
+export * from './map'
