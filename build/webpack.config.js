@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(process.cwd(), './dist'),
         publicPath: '/dist/',
-        filename: 'js-collection.common.js',
+        filename: 'collection4js.common.js',
         libraryTarget: 'commonjs2'
     },
     module: {

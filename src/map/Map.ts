@@ -1,5 +1,5 @@
 /**
- * @program: js-collection
+ * @program: collection4js
  * @description:
  * @author: l634666
  * @create: 2019-08-09 15:32

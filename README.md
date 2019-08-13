@@ -1,4 +1,4 @@
-# js-collection
+# collection4js
 
 集合工具集，HashMap/ArrayList等
 
@@ -39,9 +39,9 @@
 如果您在Node中使用，则首先需要导入该类（If you use it in Node, you first need to import this class）
 
 ```js
-import { HashMap } from 'js-collection';
-var JsCollection = require('js-collection');
-var hashMap = new JsCollection.HashMap();
+import { HashMap } from 'collection4js';
+var Collection4js = require('collection4js');
+var hashMap = new Collection4js.HashMap();
 //更多map待后续更新(More maps to be updated later)
 ```
 
