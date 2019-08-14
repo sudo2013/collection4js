@@ -13,7 +13,7 @@ import MapEntrySet from '../MapEntrySet';
 /**
  * hashmap 键值对
  */
-class HashMap<K extends string | number | symbol, V> implements Map<K, V> {
+class HashMap<K extends string | number, V> implements Map<K, V> {
 
     /**
      * 数据集大小
@@ -189,7 +189,6 @@ class HashMap<K extends string | number | symbol, V> implements Map<K, V> {
         if (this._size && this._table.hasOwnProperty(key)) {
             // @ts-ignore
             const node = this._table[key]
-            // @ts-ignore
             value = node.value
 
             // @ts-ignore

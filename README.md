@@ -6,7 +6,7 @@
 ## 描述（Description）
 
 本项目提供了一个集合类库，在NodeJs和浏览器上都能运行的类库（This project provides a collection library that runs on NodeJs and browsers.）
-- `HashMap` 允存储任何类型的键/值。(allows storage of keys/values of any type.)
+- `HashMap` 允许string|number类型的键，任何类型的值。(allows storage of keys/values of any type.)
 
 ## HashMap
 
@@ -76,16 +76,6 @@ map.put("key1", "two");
 map.get("key1"); // --> "two"
 ```
 
-
-#### 对象作为键（Objects as keys）
-
-```js
-var key1 = {};
-var key2 = {};
-map.put(key1, 1);
-map.put(key2, 2);
-map.get(key1); // --> 1
-```
 
 #### 迭代（Iterating）
 

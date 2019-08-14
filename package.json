@@ -1,6 +1,6 @@
 {
   "name": "collection4js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "集合工具集，HashMap/ArrayList等",
   "license": "Apache2.0",
   "main": "dist/collection4js.common.js",
@@ -17,19 +17,27 @@
     "url": "https://github.com/l634666/collection4js"
   },
   "keywords": [
-    "collection","collection4js","list","map","hashmap","arraylist"
+    "collection",
+    "collection4js",
+    "list",
+    "map",
+    "hashmap",
+    "arraylist"
   ],
   "author": "l634666",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.17",
     "@types/lodash": "^4.14.136",
     "@types/node": "^12.6.8",
     "awesome-typescript-loader": "^5.2.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
     "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.38.0",

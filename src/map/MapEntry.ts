@@ -5,7 +5,7 @@
  * @create: 2019-08-09 15:32
  */
 
-interface MapEntry<K extends string | number | symbol, V> {
+interface MapEntry<K extends string | number, V> {
 
     /**
      * 获取键

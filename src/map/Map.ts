@@ -8,7 +8,7 @@
 /**
  * 键值对接口约束（Key-value pair interface constraints）
  */
-interface Map<K extends string | number | symbol, V> {
+interface Map<K extends string | number, V> {
     /**
      * 返回键存储的值（Returns the value stored by the key）
      * @param key

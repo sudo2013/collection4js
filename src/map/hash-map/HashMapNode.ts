@@ -10,7 +10,7 @@ import MapEntry from '../MapEntry';
 /**
  * hashmap 键值对节点
  */
-class HashMapNode<K extends string | number | symbol, V> implements MapEntry<K, V> {
+class HashMapNode<K extends string | number, V> implements MapEntry<K, V> {
 
     constructor(key: K, value: V) {
         this._key = key;
