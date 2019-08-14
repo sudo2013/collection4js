@@ -20,7 +20,7 @@
 - `get(key: K): V` 返回键存储的值（Returns the value stored by the key）
 - `put(key: K, value: V)` this; 插入键值对（Insert key-value pairs）
 - `keys(): Array<K>` 返回所有键的数组(Returns an array of all keys)
-- `containsKey(key: K,):boolean` 是否包含键（Does it contain keys）
+- `containsKey(key: K):boolean` 是否包含键（Does it contain keys）
 - `values(): Array<V>` //返回所有值的数组 (Returns an array of all values)
 - `forEach(callbackfn: (key: K, value: V) => boolean | any, context?: any): void` 遍历这些键值对并为每对调用函数(Iterate over these key-value pairs and call functions for each pair)
  @param callbackfn 初次循环的回调，函数内 return false 终止整个循环，return 任意非 false 的值终止单次循环

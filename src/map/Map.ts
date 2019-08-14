@@ -25,7 +25,7 @@ interface Map<K extends string | number, V> {
      * 是否包含键（Does it contain keys）
      * @param key
      */
-    containsKey(key: K,):boolean
+    containsKey(key: K):boolean
 
     /**
      * 返回所有键的数组(Returns an array of all keys)
