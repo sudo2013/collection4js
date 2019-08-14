@@ -44,7 +44,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
      * @see Map#clear
      */
     clear(): void {
-        if (this._size > 0) {
+        if (this.size()) {
             for (const key in this._table) {
                 // @ts-ignore
                 delete this._table[key];
@@ -71,7 +71,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
      * @see Map#forEach
      */
     forEach(callbackfn: (key: K, value: V) => boolean | undefined, context?: any): void {
-        if (this._size > 0) {
+        if (this.size()) {
             let res: boolean = true;
             for (const key in this._table) {
                 const value: V = this._$getValue(key as any)
@@ -100,6 +100,13 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
             keys.push(key);
         })
         return keys;
+    }
+
+    /**
+     * @see Map#containsKey
+     */
+    containsKey(key: K): boolean {
+        return this._table.hasOwnProperty(key);
     }
 
     /**
@@ -152,7 +159,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
      */
     private _$putMap(m: Map<K, V>): void {
         const me = this
-        if (m.size() > 0) {
+        if (m.size()) {
             m.forEach((key, value): boolean | any => {
                 me._$putValue(key, value)
             })
@@ -167,7 +174,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     private _$getValue(key: K): V {
         let value: V = null
 
-        if (this._size && this._table.hasOwnProperty(key)) {
+        if (this.size() && this.containsKey(key)) {
             // @ts-ignore
             const node = this._table[key]
             // @ts-ignore
@@ -186,7 +193,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     private _$removeValue(key: K): V {
         let value: V = null
 
-        if (this._size && this._table.hasOwnProperty(key)) {
+        if (this.size() && this.containsKey(key)) {
             // @ts-ignore
             const node = this._table[key]
             value = node.value
