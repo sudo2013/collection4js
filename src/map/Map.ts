@@ -13,7 +13,7 @@ interface Map<K extends string | number, V> {
      * 返回键存储的值（Returns the value stored by the key）
      * @param key
      */
-    get(key: K): V
+    get(key: K): V;
 
     /**
      * 插入键值对（Insert key-value pairs）
@@ -25,17 +25,17 @@ interface Map<K extends string | number, V> {
      * 是否包含键（Does it contain keys）
      * @param key
      */
-    containsKey(key: K):boolean
+    containsKey(key: K):boolean;
 
     /**
      * 返回所有键的数组(Returns an array of all keys)
      */
-    keys(): Array<K>
+    keys(): Array<K>;
 
     /**
      * 返回所有值的数组 (Returns an array of all values)
      */
-    values(): Array<V>
+    values(): Array<V>;
 
     /**
      * 遍历这些键值对并为每对调用函数(Iterate over these key-value pairs and call functions for each pair)
@@ -43,19 +43,19 @@ interface Map<K extends string | number, V> {
      * @param callbackfn 初次循环的回调，函数内 return false 终止整个循环，return 任意非 false 的值终止单次循环
      * @param context 回调函数内上下文
      */
-    forEach(callbackfn: (key: K, value: V) => boolean | any, context?: any): void
+    forEach(callbackfn: (key: K, value: V) => boolean | any, context?: any): void;
 
     /**
      * 删除键值根据键 (Delete key-value pairs by key)
      * @param key
      */
-    remove(key: K): void
+    remove(key: K): void;
 
     /**
      * 删除所有键值对(Delete all key-value pairs)
      * @param key
      */
-    clear(): void
+    clear(): void;
 
     /**
      * 键值对集的大小(The size of key-value pairs)
@@ -65,7 +65,12 @@ interface Map<K extends string | number, V> {
     /**
      * 克隆成为一个新的键值对集合(The clone becomes a new set of key-value pairs)
      */
-    clone(): Map<K, V>
+    clone(): Map<K, V>;
+
+    /**
+     * 是否为空集合(Is it a set of null key-value pairs)
+     */
+    isEmpty(): boolean;
 }
 
 export default Map

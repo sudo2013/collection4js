@@ -67,7 +67,7 @@ test('Iterating', () => {
     });
 });
 
-//迭代（Iterating）
+//链式调用（Method chaining）
 test('Method chaining', () => {
     const map:Map<number,string> = new HashMap<number,string>();
 

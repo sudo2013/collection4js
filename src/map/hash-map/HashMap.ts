@@ -68,9 +68,16 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     }
 
     /**
+     * @see Map#isEmpty
+     */
+    isEmpty(): boolean {
+        return this.size() == 0;
+    }
+
+    /**
      * @see Map#forEach
      */
-    forEach(callbackfn: (key: K, value: V) => boolean | undefined, context?: any): void {
+    forEach(callbackfn: (key: K, value: V) => boolean | any, context?: any): void {
         if (this.size()) {
             let res: boolean = true;
             for (const key in this._table) {

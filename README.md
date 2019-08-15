@@ -6,8 +6,13 @@
 ## 描述（Description）
 
 本项目提供了一个集合类库，在NodeJs和浏览器上都能运行的类库（This project provides a collection library that runs on NodeJs and browsers.）
-- `HashMap` 允许string|number类型的键，任何类型的值。(allows storage of keys/values of any type.)
+- `HashMap` 允许string|number类型的键，任何类型的值。(Allow string | number type keys, any type of value.)
+- `ArrayList` 允许任何类型的值。(Allow any type of value.)
 
+### 链式调用（Method chaining）
+
+所有不返回内容的方法都将返回实例以支持链式调用。（All methods that do not return content will return instances to support chain calls）
+  
 ## HashMap
 
 ### 构造函数重载（constructor overloads）
@@ -29,11 +34,7 @@
 - `clear(): void` 删除所有键值对(Delete all key-value pairs)
 - `size(): number` 键值对集的大小(The size of key-value pairs)
 - `clone(): Map<K, V>` 克隆成为一个新的键值对集合(The clone becomes a new set of key-value pairs)
-
-#### 链式调用（Method chaining）
-
-所有不返回内容的方法都将返回HashMap实例以支持链式调用。（All methods that do not return content will return HashMap instances to support chain calls）
-    
+- `isEmpty(): boolean`  是否为空集合(Is it a set of null key-value pairs)
     
 ### 例子（Examples）
 
@@ -109,8 +110,100 @@ map
 
 ## ArrayList
 
-等待后续更新
+### 构造函数重载（constructor overloads）
+- `new ArrayList()` 创建一个空的 arraylist
+- `new ArrayList(list?: List<T> | Array<T>)` 使用数组或已有集合创建一个arraylist
 
+
+### 函数（methods）
+- `size(): number` 集合大小（Collection size）
+- `add(value: T): this` 插入元素（Insert elements）
+- `addAll(values: T[] | List<T>): this` 插入多个元素（Insert multiple elements）
+- `get(index: number): T` 获取元素（Get elements）
+- `removeIndex(index: number): T` 移除指定下标的元素(Remove the specified subscript element)
+- `removeObject(obj: T): T` 移除指定元素(Remove the specified element)
+- `isEmpty(): boolean` 是否为空(Is it empty)
+- `isEmpty(): boolean` 遍历这些元素并为每对调用函数(Iterate over these element and call functions for each)
+    @param callbackfn 初次循环的回调，函数内 return false 终止整个循环，return 任意非 false 的值终止单次循环
+    context 回调函数内上下文
+- `forEach(callbackfn: (value: T) => boolean | any, context?: any): void` 遍历这些元素并为每对调用函数(Iterate over these element and call functions for each)
+- `clear(): void` 清空(clear)
+- `contains(obj: T): boolean` 是否包含元素(Does it contain elements)
+- `indexOf(obj: T): number` 获取元素下标(Get element Subscripts)
+- `toArray(): Array<T>` 转换为数组（Converting to array）
+- `sort(sortBy: (a: T, b: T) => number): this` 元素排序（elements sort）
+    @param sortBy 若 a 小于 b，在排序后的集合中 a 应该出现在 b 之前，则返回一个小于 0 的值。
+    若 a 等于 b，则返回 0。若 a 大于 b，则返回一个大于 0 的值。
+   （If A is less than b, A should appear before B in the sorted set, then a value less than 0 is returned.
+    If a equals b, return 0. If A is greater than b, a value greater than 0 is returned.）
+
+
+### 例子（Examples）
+
+如果您在Node中使用，则首先需要导入该类（If you use it in Node, you first need to import this class）
+
+```js
+import { ArrayList } from 'collection4js';
+var Collection4js = require('collection4js');
+var arrayList = new Collection4js.ArrayList();
+var arrayList2 = new ArrayList();
+//更多map待后续更新(More maps to be updated later)
+```
+
+####简单用例(Simple use cases)
+```js
+list.add('value1')
+console.log(list.get(0))
+```
+
+####集合大小（List size）
+```js
+list.add("value1");
+list.add("value2");
+console.log(list.size())
+```
+
+###删除元素（Delete Element）
+```js
+list.add("value1");
+list.removeIndex(0);
+//list.removeIndex(0) or list.removeObject('value1')
+
+console.log(list.get(0))
+```
+
+####排序（sort elements）
+```js
+list.add({order: 3, value: 'value3'})
+    .add({order: 2, value: 'value2'})
+    .add({order: 1, value: 'value1'})
+    .sort(function(a,b) {
+        return a.order - b.order
+    }).forEach(function (value) {
+        console.log(value.value)
+    });
+```
+
+####迭代（Iterating）
+```js
+list.add("value1");
+list.add("value2");
+list.add("value3");
+
+list.forEach(function (value) {
+    console.log(value);
+})
+```
+
+####链式调用（Method chaining）
+```js
+list.add("value1")
+     .add("value2")
+     .add("value3")
+     .forEach(function (value) {
+        console.log(value);
+     });
+```
 
 ## To-Do
 
