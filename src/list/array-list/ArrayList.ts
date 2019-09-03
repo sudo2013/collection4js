@@ -160,7 +160,7 @@ class ArrayList<T> implements List<T> {
      */
     private _$addValues(values: List<T> | Array<T>): this {
         if (values instanceof Array) {
-            for (let i = 0; i < this._size; i++) {
+            for (let i = 0; i < values.length; i++) {
                 this._$addValue(values[i]);
             }
         } else if (values instanceof ArrayList) {

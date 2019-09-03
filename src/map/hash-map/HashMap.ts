@@ -203,6 +203,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
         if (this.size() && this.containsKey(key)) {
             // @ts-ignore
             const node = this._table[key]
+            // @ts-ignore
             value = node.value
 
             // @ts-ignore
