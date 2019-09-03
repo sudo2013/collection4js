@@ -1,6 +1,6 @@
 {
   "name": "collection4js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "集合工具集，HashMap/ArrayList等",
   "license": "Apache2.0",
   "main": "dist/collection4js.common.js",
