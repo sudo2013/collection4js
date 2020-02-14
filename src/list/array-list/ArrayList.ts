@@ -49,6 +49,8 @@ class ArrayList<T> implements List<T> {
         if (this._size > 0) {
             this._elements.splice(0, this._size);
         }
+
+        this._size = 0;
     }
 
     /**
