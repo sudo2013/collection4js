@@ -22,8 +22,8 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     /**
      * 数据表
      */
-    // @ts-ignore
-    private readonly _table: {[key: K]: HashMapNode<K, V> } = {};
+        // @ts-ignore
+    private readonly _table: { [key: K]: HashMapNode<K, V> } = {};
     /**
      * 键值存储数组
      * TODO：暂时没有实现
@@ -44,12 +44,14 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
      * @see Map#clear
      */
     clear(): void {
-        if (this.size()) {
+        if (this._size > 0) {
             for (const key in this._table) {
                 // @ts-ignore
                 delete this._table[key];
             }
         }
+
+        this._size = 0;
     }
 
     /**
@@ -71,14 +73,14 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
      * @see Map#isEmpty
      */
     isEmpty(): boolean {
-        return this.size() == 0;
+        return this._size == 0;
     }
 
     /**
      * @see Map#forEach
      */
     forEach(callbackfn: (key: K, value: V) => boolean | any, context?: any): void {
-        if (this.size()) {
+        if (this._size > 0) {
             let res: boolean = true;
             for (const key in this._table) {
                 const value: V = this._$getValue(key as any)
@@ -105,7 +107,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
         const keys: Array<K> = []
         this.forEach((key, value): boolean | any => {
             keys.push(key);
-        })
+        });
         return keys;
     }
 
@@ -138,7 +140,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
         const values: Array<V> = []
         this.forEach((key, value): boolean | any => {
             values.push(value);
-        })
+        });
         return values;
     }
 
@@ -154,8 +156,10 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
         // @ts-ignore
         this._table[key] = node
 
-        //键值对集大小+1
-        ++this._size
+        if (!this.containsKey(key)) {
+            //键值对集大小+1
+            ++this._size
+        }
     }
 
     /**
@@ -181,7 +185,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     private _$getValue(key: K): V {
         let value: V = null
 
-        if (this.size() && this.containsKey(key)) {
+        if (this._size > 0 && this.containsKey(key)) {
             // @ts-ignore
             const node = this._table[key]
             // @ts-ignore
@@ -200,7 +204,7 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     private _$removeValue(key: K): V {
         let value: V = null
 
-        if (this.size() && this.containsKey(key)) {
+        if (this._size > 0 && this.containsKey(key)) {
             // @ts-ignore
             const node = this._table[key]
             // @ts-ignore
@@ -208,10 +212,10 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
 
             // @ts-ignore
             delete this._table[key]
-        }
 
-        //键值对集大小11
-        --this._size
+            //键值对集大小减1
+            --this._size
+        }
 
         return value
     }

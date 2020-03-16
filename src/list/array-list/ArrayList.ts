@@ -64,7 +64,7 @@ class ArrayList<T> implements List<T> {
      * @see List#forEach
      */
     forEach(callbackfn: (value: T) => (boolean | any), context?: any): void {
-        if (this._size) {
+        if (this._size > 0) {
             let res: boolean = true;
 
             for (let i: number = 0; i < this._size; i++) {
