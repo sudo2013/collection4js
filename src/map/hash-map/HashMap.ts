@@ -153,13 +153,13 @@ class HashMap<K extends string | number, V> implements Map<K, V> {
     private _$putValue(key: K, value: V): void {
         const node: HashMapNode<K, V> = new HashMapNode(key, value)
 
-        // @ts-ignore
-        this._table[key] = node
-
         if (!this.containsKey(key)) {
             //键值对集大小+1
             ++this._size
         }
+
+        // @ts-ignore
+        this._table[key] = node
     }
 
     /**
