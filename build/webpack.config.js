@@ -25,12 +25,5 @@ module.exports = {
     externals: {
     },
     plugins: [
-    ],
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        historyApiFallback: true,
-        hot: true,
-        port: 8080
-    }
+    ]
 };

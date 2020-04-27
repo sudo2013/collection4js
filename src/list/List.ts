@@ -60,6 +60,15 @@ interface List<T> {
      */
     forEach(callbackfn: (value: T) => boolean | any, context?: any): void;
 
+
+    /**
+     * 过滤这些元素并为每个元素调用函数(Filter these elements and call functions for each element)
+     *
+     * @param callbackfn 逐次循环的回调，函数内 return true 则加入过滤结果集
+     * @param context 回调函数内上下文
+     */
+    filter(callbackfn: (value: T) => boolean | any, context?: any): Array<T>;
+
     /**
      * 清空(clear)
      */

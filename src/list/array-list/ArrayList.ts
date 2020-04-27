@@ -205,6 +205,32 @@ class ArrayList<T> implements List<T> {
 
         return value;
     }
+
+    /**
+     * 过滤这些元素并为每个元素调用函数(Filter these elements and call functions for each element)
+     *
+     * @param callbackfn 逐次循环的回调，函数内 return true 则加入过滤结果集
+     * @param context 回调函数内上下文
+     */
+    filter(callbackfn: (value: T) => (boolean | any), context?: any): Array<T> {
+        const values:Array<T> = [];
+
+        if (this._size > 0) {
+            let res: boolean = true;
+
+            for (let i: number = 0; i < this._size; i++) {
+                const value: T = this._$getValue(i);
+
+                res = callbackfn.call(context || this, value);
+
+                if (res === true) {
+                    values.push(value);
+                }
+            }
+        }
+
+        return values;
+    }
 }
 
 export default ArrayList
